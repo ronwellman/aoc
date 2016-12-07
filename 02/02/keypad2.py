@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+
+#build the enhanced keypad
 keypad = [['X','X','1','X','X'],
           ['X','2','3','4','X'],
           ['5','6','7','8','9'],
@@ -32,7 +34,10 @@ keypad = [['X','X','1','X','X'],
 def main(args):
     
     output = []
+    
+    #logic patterns to update x,y of the keypad list based on the direction moved
     pattern = {'U':(-1,0),'D':(1,0),'L':(0,-1),'R':(0,1)}
+    
     x1 = 0
     y1 = 2
     
@@ -45,11 +50,14 @@ def main(args):
         
         for movement in digit:
             
+            #load the movement pattern
             y2,x2 = pattern[movement]
+            
+            #record new position based on movement in new variable
             x2 = x1 + x2
             y2 = y1 + y2
             
-                       
+            #bounds checking
             if x2 < 0:
                 x2 = 0
             if x2 > 4:
@@ -59,7 +67,8 @@ def main(args):
             if y2 > 4:
                 y2 = 4
             
-            #if an X was not found, set the new coordinates
+            #if an X was not found, update the original coordinates
+            #otherwise, do nothing and loop to the next movement
             if keypad[y2][x2] != 'X':
                 x1,y1 = x2,y2
             

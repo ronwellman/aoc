@@ -30,7 +30,7 @@ def get_most_common(code,x):
     for l in code:
         
         cnt[l[x]] += 1
-    
+    #returns the least common letter
     return cnt.most_common()[-1][0][0]
 
 def main(args):

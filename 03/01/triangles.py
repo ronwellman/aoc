@@ -33,10 +33,14 @@ def main(args):
     triangles = [t.strip() for t in triangles]
     
     for t in triangles:
-            
+        
+        #load triangle sides into x,y,x
         x,y,z = t.split()
+        
+        #sort them to ensure the largets number is in z
         x,y,z = sorted([int(x),int(y),int(z)])
         
+        #ballpark check for valid triagles says that z has to be less than x+y
         if (x+y) > z:
             valid += 1
             

@@ -6,6 +6,7 @@ import string
 #build a dictionary for the alphabet for easy lookup
 ascii = string.ascii_lowercase
 alpha = {}
+
 for x in range(26):
     alpha[ascii[x]] = x
     
@@ -33,6 +34,7 @@ for x in range(26):
 #  
 #  
 
+#shift cypher using the sector number
 def decrypt_room(enc_name, sector):
     
     dec_name = []
@@ -83,8 +85,10 @@ def main(args):
         #if the top5 are equal to the code decrypt it
         if top5 == code[:-1]:
             
+            #decrypt the names using a shift cypher based on sector number
             decrypted_rm = decrypt_room(r.split('-')[:-1],int(sector))
             
+            #look for entries that contain the word pole as in northpole
             if 'pole' in decrypted_rm:
                 print decrypted_rm, sector
             

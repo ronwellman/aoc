@@ -38,8 +38,11 @@ def main(args):
         #get hash
         h = hashlib.md5(door_id + str(cnt)).hexdigest()
         
-        #look for leading zeros and update door_code
+        #look for leading zeros
+        #6th character needs to be less than 7
+        #6th character marks the position and should not have been solved already
         if h[0:5] == '00000' and h[5].isdigit() and int(h[5]) <= 7 and door_code[int(h[5])] == ' ':
+            #7th character is the next digit of the key
             door_code[int(h[5])] = h[6]
             found += 1
             print('{0:<40} {1}').format(door_code, cnt)

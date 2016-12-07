@@ -30,6 +30,7 @@ keypad = [[1,2,3],
 def main(args):
     
     output = []
+    #logic patterns to update x,y of the keypad list based on the direction moved
     pattern = {'U':(-1,0),'D':(1,0),'L':(0,-1),'R':(0,1)}
     x1 = 1
     y1 = 1
@@ -43,10 +44,14 @@ def main(args):
         
         for movement in digit:
             
+            #load x,y movements based on the specified movement direction
             y2,x2 = pattern[movement]
+            
+            #update original coordinates based off new direction pattern
             x1 += x2
             y1 += y2
             
+            #check the bounds of the movement
             if x1 < 0:
                 x1 = 0
             if x1 > 2:
@@ -56,6 +61,7 @@ def main(args):
             if y1 > 2:
                 y1 = 2
                    
+        #build the pins
         output.append(keypad[y1][x1])
     print output
     return 0

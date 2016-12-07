@@ -30,6 +30,7 @@ def change_direction(direction,movement):
     
     movement = movement[0]
     
+    #find the result of Right/Left turns based on the original heading
     if direction  == 'N':
         if movement == 'L':
             return 'W'
@@ -55,7 +56,8 @@ def change_direction(direction,movement):
 def record_distance(x,y,direction,movement):
     
     distance = int(movement[1:])
-
+    
+    #update position based on the direction being traveled
     if direction == 'N':
         y += distance
     elif direction == 'S':
@@ -73,6 +75,7 @@ def main(args):
     x = 0
     y = 0
     
+    #initially moving north
     direction='N'
 
     with open(args[1]) as f:
@@ -82,9 +85,13 @@ def main(args):
     
     for movement in grids:
         
+        #update direction
         direction = change_direction(direction,movement)
+        
+        #update position based on distance and direction
         x,y = record_distance(x,y,direction,movement)
     
+    #find the non-direct (non-diagonal) distance between x and y
     print abs(x) + abs(y)
     
     return 0

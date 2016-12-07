@@ -1,3 +1,3 @@
 #Advent of Code 2016
 
-Obviously this is still going on.  **Please do not cheat by using my code**.  You can look at my code as an example but I urge you to understand what is going on and then rewriting it yourself.
+Obviously this is still going on.  **Please do not cheat by using my code**.  You can look at my code as an example but I urge you to understand what is going on and then write your own solutions.  That and my code sucks.  Seriously...  You're scraping the bottom here...

@@ -39,6 +39,8 @@ def main(args):
         
         #look for leading zeros and update door_code
         if h[0:5] == '00000':
+            
+            #6th character is the next part of the key
             door_code += h[5]
             print('{0:<8} {1}').format(door_code, cnt)
         

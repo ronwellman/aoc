@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+#keep track of where we have been
 coords = [(0,0)]
 collision = []
 
@@ -72,7 +73,7 @@ def record_distance(x,y,direction,movement):
         x2 = -1
         y2 = 0
         
-    #record each of the coordinates and look for collisions
+    #record each of the coordinates one by one and look for collisions
     for m in range(distance):
         
         #calc new coords
@@ -81,10 +82,14 @@ def record_distance(x,y,direction,movement):
         
         if (x,y) in coords:
                 
-            #if coordinate already exists record and break
+            #if coordinate already exists we have been here before indicating 
+            #the true position of the HQ break as there is no reason to 
+            #continue the loop 
             collision.append((x,y))
             break
         else:
+            
+            #record current position
             coords.append((x,y))
     
     return x,y
@@ -116,9 +121,10 @@ def main(args):
         x,y = record_distance(x,y,direction,movement)
         
         #if a collision was recorded, break out of the loop
-        if len(collision) > 0:
+        if len(collision) != 0:
             break
-            
+    
+    #find the non-direct (non-diagonal) distance between x and y        
     print abs(x) + abs(y)
     
     return 0

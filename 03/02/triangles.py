@@ -50,6 +50,7 @@ def main(args):
         t2 = sorted([y[i],y[i+1],y[i+2]])
         t3 = sorted([z[i],z[i+1],z[i+2]])
         
+        #test if they are valid sides
         if (t1[0]+t1[1]) > t1[2]:
             valid += 1
         if (t2[0]+t2[1]) > t2[2]:
