@@ -1,0 +1,6 @@
+rect 2x7
+rotate row y=0 by 55
+rotate row y=1 by 45
+rect 2x2
+rotate row y=2 by 7
+rotate column x=0 by 1
